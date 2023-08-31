@@ -18,7 +18,8 @@ avg_icecover <- function(my_ntl_icecover) {
 
 # compute the the average air temp from  Nov to April (next year)
 avg_airtemp <- function(my_ntl_airtemp) {
-# Add a column to group the Fall and Spring season into a same year, similarly to what is done when defining hydrological year
+# Add a column to group the Fall and Spring season into a same year, similarly to 
+  #what is done when defining hydrological year
 ntl_airtemp_hydro <- my_ntl_airtemp %>%
   mutate(hydroyear = if_else(month(sampledate) < 10, year-1, year))
 
@@ -50,7 +51,7 @@ scatter_ntl<- function(ntl_all){
     ) +
     geom_smooth(
       method = "lm",
-      color = "black",
+      color = "red",
       se = FALSE,
       linewidth = 0.3
     )
